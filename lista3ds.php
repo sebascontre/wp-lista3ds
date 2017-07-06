@@ -21,7 +21,7 @@ function lista3ds() {
 	));
 	
 	if($lista->have_posts()) {
-		$html .= '<div class="columns is-mobile">';
+		$html .= '<div class="columns is-mobile is-multiline">';
 		$i = 0;
 		
 		while($lista->have_posts()) {
