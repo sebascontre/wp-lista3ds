@@ -21,23 +21,20 @@ function lista3ds() {
 	));
 	
 	if($lista->have_posts()) {
-		$html .= '<div class="container"><div class="row">';
+		$html .= '<div class="columns is-mobile">';
 		$i = 0;
 		
 		while($lista->have_posts()) {
 			 $lista->the_post(); $i++;
-			 $html .= '<div class="col-xs-6 col-md-3">';
+			 $html .= '<div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">';
 			 $html .= get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'img-fluid'));
 			 $html .= get_the_title(get_the_ID());
 			 $html .= '<br/>';
 			 $html .= get_the_date('Y').' - <strong>'.get_post_meta(get_the_ID(), '3ds_size', true).'</strong>';
 			 $html .= '</div>';
-			 
-			 if (($i % 2 == 0) && ($i % 4 != 0)) $html .= '<div class="clearfix visible-xs"></div>';
-			 if (($i % 2 == 0) && ($i % 4 == 0)) $html .= '<div class="clearfix visible"></div>';
 		}
 		
-		$html .= '</div></div>';
+		$html .= '</div>';
 	}
 	
 	return $html;
