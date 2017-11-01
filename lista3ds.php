@@ -94,5 +94,6 @@ add_shortcode('lista3ds', 'lista3ds');
 add_action('init', 'register_lista3ds');
 add_filter('manage_lista3ds_posts_columns', 'lista3ds_table_head');
 add_action('manage_lista3ds_posts_custom_column', 'lista3ds_table_content', 10, 2 );
+add_theme_support('post-thumbnails');
 
 ?>
