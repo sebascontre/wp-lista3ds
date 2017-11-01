@@ -3,7 +3,7 @@
 * Plugin Name: Lista 3DS
 * Plugin URI: https://www.3dslibre.com/
 * Description: Lista Visual para juegos de 3DSLibre
-* Version: 0.2
+* Version: 0.3
 * Author: SebasContre
 * Author URI: https://seba.im/
 * License: FREE FOR ALL.
@@ -19,6 +19,8 @@ function lista3ds() {
 		'orderby'=> 'title',
 		'order' => 'ASC' 
 	));
+	
+	wp_enqueue_style('bulma-columns', plugin_dir_url( __FILE__ ) . 'columns.css');
 	
 	if($lista->have_posts()) {
 		$html .= '<div class="columns is-mobile is-multiline">';
