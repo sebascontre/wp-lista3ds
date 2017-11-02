@@ -35,10 +35,10 @@ function lista3ds() {
 			$cache .= get_the_date('Y').' - <strong>'.get_post_meta(get_the_ID(), '3ds_size', true).'</strong>';
 			$cache .= '</div>';
 			
-			if (get_the_title(get_the_ID()) === "Pokémon Moon") {
+			if (get_the_title(get_the_ID()) == "Pokémon Moon") {
 				$aux = $cache;
 				$cache = "";
-			} else if (get_the_title(get_the_ID()) === "Pokémon Sun") {
+			} else if (get_the_title(get_the_ID()) == "Pokémon Sun") {
 				$cache .= $aux;
 			}
 			
