@@ -24,16 +24,25 @@ function lista3ds() {
 	
 	if($lista->have_posts()) {
 		$html .= '<div class="columns is-mobile is-multiline">';
-		$i = 0;
+		$cache = ""; $aux = "";
 		
 		while($lista->have_posts()) {
-			 $lista->the_post(); $i++;
-			 $html .= '<div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">';
-			 $html .= get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'img-fluid'));
-			 $html .= get_the_title(get_the_ID());
-			 $html .= '<br/>';
-			 $html .= get_the_date('Y').' - <strong>'.get_post_meta(get_the_ID(), '3ds_size', true).'</strong>';
-			 $html .= '</div>';
+			$lista->the_post();
+			$cache  = '<div class="column is-half-mobile is-one-third-tablet is-one-quarter-desktop">';
+			$cache .= get_the_post_thumbnail(get_the_ID(), 'full', array('class' => 'img-fluid'));
+			$cache .= get_the_title(get_the_ID());
+			$cache .= '<br/>';
+			$cache .= get_the_date('Y').' - <strong>'.get_post_meta(get_the_ID(), '3ds_size', true).'</strong>';
+			$cache .= '</div>';
+			
+			if (get_the_title(get_the_ID()) === "Pokémon Moon") {
+				$aux = $cache;
+				$cache = "";
+			} else if (get_the_title(get_the_ID()) === "Pokémon Sun") {
+				$cache .= $aux;
+			}
+			
+			$html .= $cache;
 		}
 		
 		$html .= '</div>';
